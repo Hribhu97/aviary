@@ -13,15 +13,15 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-espresso/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="flex items-center gap-2 group" aria-label="The Aviary Guide home">
+          <Link href="/" className="flex items-center gap-2.5 group" aria-label="The Aviary home">
             <motion.div
               whileHover={{ rotate: -8 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Bird className="w-8 h-8 text-forest" aria-hidden="true" />
             </motion.div>
-            <span className="font-serif text-xl md:text-2xl text-forest font-bold tracking-tight">
-              The Aviary Guide
+            <span className="font-metal text-2xl md:text-3xl text-forest tracking-wide">
+              The Aviary
             </span>
           </Link>
 

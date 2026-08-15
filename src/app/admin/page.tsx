@@ -3,7 +3,7 @@ import AdminDashboard from "./AdminDashboard";
 
 export const metadata = createMetadata({
   title: "Admin",
-  description: "Admin CMS for The Aviary Guide",
+  description: "Admin CMS for The Aviary",
   path: "/admin",
 });
 

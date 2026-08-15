@@ -6,7 +6,7 @@ import { formatDate } from "@/lib/utils";
 
 export const metadata = createMetadata({
   title: "Blog",
-  description: "Bird care tips, guides, and stories from The Aviary Guide journal.",
+  description: "Bird care tips, guides, and stories from The Aviary journal.",
   path: "/blog",
 });
 

@@ -3,7 +3,7 @@ import ContactClient from "./ContactClient";
 
 export const metadata = createMetadata({
   title: "Contact",
-  description: "Get in touch with The Aviary Guide team for bird care questions and enquiries.",
+  description: "Get in touch with The Aviary team for bird care questions and enquiries.",
   path: "/contact",
 });
 

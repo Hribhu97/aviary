@@ -9,7 +9,8 @@
   --color-cream-dark: #EDE4D3;
   --color-forest-light: #1E5242;
   --color-terracotta-light: #D4846A;
-  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-metal: var(--font-metal), "Metal", cursive, serif;
+  --font-serif: var(--font-eb-garamond), "EB Garamond", Garamond, Georgia, serif;
   --font-sans: var(--font-montserrat), system-ui, sans-serif;
 }
 
@@ -38,7 +39,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-serif tracking-tight font-semibold;
   }
 
   :focus-visible {
