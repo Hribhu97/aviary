@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
 
 export async function POST(request: Request) {
   try {
@@ -10,8 +9,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid password" }, { status: 401 });
     }
 
-    const cookieStore = await cookies();
-    cookieStore.set("admin_auth", "true", {
+    const response = NextResponse.json({ success: true });
+    response.cookies.set("admin_auth", "true", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
@@ -19,14 +18,14 @@ export async function POST(request: Request) {
       path: "/",
     });
 
-    return NextResponse.json({ success: true });
+    return response;
   } catch {
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
 
 export async function DELETE() {
-  const cookieStore = await cookies();
-  cookieStore.delete("admin_auth");
-  return NextResponse.json({ success: true });
+  const response = NextResponse.json({ success: true });
+  response.cookies.delete("admin_auth");
+  return response;
 }

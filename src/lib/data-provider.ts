@@ -4,6 +4,7 @@ import categoriesData from "./data/categories.json";
 import articlesData from "./data/articles.json";
 import testimonialsData from "./data/testimonials.json";
 import resourcesData from "./data/resources.json";
+import { createClient } from "./supabase/client";
 
 const birds = birdsData as Bird[];
 const categories = categoriesData as Category[];
@@ -11,19 +12,19 @@ const articles = articlesData as Article[];
 const testimonials = testimonialsData as Testimonial[];
 const resources = resourcesData as Resource[];
 
-function useSupabase(): boolean {
+function isSupabaseConfigured(): boolean {
   return !!(
     process.env.NEXT_PUBLIC_SUPABASE_URL &&
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY &&
-    process.env.NEXT_PUBLIC_SUPABASE_URL !== "https://your-project.supabase.co"
+    process.env.NEXT_PUBLIC_SUPABASE_URL !== "https://your-project.supabase.co" &&
+    process.env.NEXT_PUBLIC_SUPABASE_URL !== "https://placeholder.supabase.co"
   );
 }
 
 export async function getBirds(): Promise<Bird[]> {
-  if (useSupabase()) {
+  if (isSupabaseConfigured()) {
     try {
-      const { createClient } = await import("./supabase/server");
-      const supabase = await createClient();
+      const supabase = createClient();
       const { data, error } = await supabase.from("birds").select("*").order("name");
       if (!error && data?.length) return data as Bird[];
     } catch {
@@ -34,10 +35,9 @@ export async function getBirds(): Promise<Bird[]> {
 }
 
 export async function getBirdBySlug(slug: string): Promise<Bird | undefined> {
-  if (useSupabase()) {
+  if (isSupabaseConfigured()) {
     try {
-      const { createClient } = await import("./supabase/server");
-      const supabase = await createClient();
+      const supabase = createClient();
       const { data, error } = await supabase.from("birds").select("*").eq("slug", slug).single();
       if (!error && data) return data as Bird;
     } catch {
@@ -73,10 +73,9 @@ export async function searchBirds(query: string): Promise<Bird[]> {
 }
 
 export async function getCategories(): Promise<Category[]> {
-  if (useSupabase()) {
+  if (isSupabaseConfigured()) {
     try {
-      const { createClient } = await import("./supabase/server");
-      const supabase = await createClient();
+      const supabase = createClient();
       const { data, error } = await supabase.from("categories").select("*").order("name");
       if (!error && data?.length) return data as Category[];
     } catch {
@@ -87,10 +86,9 @@ export async function getCategories(): Promise<Category[]> {
 }
 
 export async function getArticles(): Promise<Article[]> {
-  if (useSupabase()) {
+  if (isSupabaseConfigured()) {
     try {
-      const { createClient } = await import("./supabase/server");
-      const supabase = await createClient();
+      const supabase = createClient();
       const { data, error } = await supabase
         .from("articles")
         .select("*")
@@ -105,10 +103,9 @@ export async function getArticles(): Promise<Article[]> {
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | undefined> {
-  if (useSupabase()) {
+  if (isSupabaseConfigured()) {
     try {
-      const { createClient } = await import("./supabase/server");
-      const supabase = await createClient();
+      const supabase = createClient();
       const { data, error } = await supabase.from("articles").select("*").eq("slug", slug).single();
       if (!error && data) return data as Article;
     } catch {
@@ -119,10 +116,9 @@ export async function getArticleBySlug(slug: string): Promise<Article | undefine
 }
 
 export async function getTestimonials(): Promise<Testimonial[]> {
-  if (useSupabase()) {
+  if (isSupabaseConfigured()) {
     try {
-      const { createClient } = await import("./supabase/server");
-      const supabase = await createClient();
+      const supabase = createClient();
       const { data, error } = await supabase
         .from("testimonials")
         .select("*")
@@ -137,10 +133,9 @@ export async function getTestimonials(): Promise<Testimonial[]> {
 }
 
 export async function getResources(): Promise<Resource[]> {
-  if (useSupabase()) {
+  if (isSupabaseConfigured()) {
     try {
-      const { createClient } = await import("./supabase/server");
-      const supabase = await createClient();
+      const supabase = createClient();
       const { data, error } = await supabase.from("resources").select("*").order("title");
       if (!error && data?.length) return data as Resource[];
     } catch {
