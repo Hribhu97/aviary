@@ -24,9 +24,9 @@ export function truncate(text: string, length: number): string {
   return text.slice(0, length).replace(/\s+\S*$/, "") + "…";
 }
 
-export const SITE_NAME = "The Aviary";
+export const SITE_NAME = "West Bengal Avian Soceity";
 export const SITE_DESCRIPTION =
-  "Discover your perfect feathered friend. A handcrafted bird encyclopedia with verified profiles, care guides, and expert resources.";
+  "Discover your perfect feathered friend. Handcrafted bird care guides, verified profiles, and expert resources by West Bengal Avian Soceity.";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const NAV_LINKS = [

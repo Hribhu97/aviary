@@ -11,43 +11,57 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-espresso/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="flex items-center gap-2.5 group" aria-label="The Aviary home">
+      <div className="w-full max-w-[1728.11px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-[44px] min-h-[44px]">
+          {/* Logo with Bebas Note strictly */}
+          <Link
+            href="/"
+            className="flex items-center gap-2 group flex-shrink-0"
+            aria-label="West Bengal Avian Soceity home"
+          >
             <motion.div
               whileHover={{ rotate: -8 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Bird className="w-8 h-8 text-forest" aria-hidden="true" />
+              <Bird className="w-6 h-6 text-forest" aria-hidden="true" />
             </motion.div>
-            <span className="font-metal text-2xl md:text-3xl text-forest tracking-wide">
-              The Aviary
+            <span className="font-bebas-note text-2xl text-forest tracking-wide font-normal">
+              West Bengal Avian Soceity
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+          {/* Navigation with Cabinet Grotesk Medium + Hover Underline Effect */}
+          <nav
+            className="hidden md:flex items-center gap-7 lg:gap-8 h-full"
+            aria-label="Main navigation"
+          >
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-espresso/80 hover:text-forest font-medium transition-colors text-sm tracking-wide"
+                className="font-cabinet font-medium text-xs lg:text-sm text-espresso/80 hover:text-forest transition-colors relative py-1 group inline-flex items-center"
               >
-                {link.label}
+                <span>{link.label}</span>
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-forest rounded-full transition-all duration-300 ease-out group-hover:w-full" />
               </Link>
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
-            <Link href="/find-your-bird" className="hidden sm:inline-flex stamp-button text-sm">
+          {/* Action button */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <Link
+              href="/find-your-bird"
+              className="hidden sm:inline-flex stamp-button text-xs px-4 py-1.5 rounded-full shadow-xs"
+            >
               Find Your Bird ♥
             </Link>
             <button
-              className="md:hidden p-2 text-forest"
+              className="md:hidden p-1.5 text-forest"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -62,12 +76,12 @@ export default function Header() {
             className="md:hidden overflow-hidden bg-cream border-b border-espresso/10"
             aria-label="Mobile navigation"
           >
-            <div className="px-4 py-4 space-y-3">
+            <div className="px-4 py-4 space-y-3 font-cabinet font-medium text-sm">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="block py-2 text-espresso/80 hover:text-forest font-medium"
+                  className="block py-2 text-espresso/80 hover:text-forest transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}

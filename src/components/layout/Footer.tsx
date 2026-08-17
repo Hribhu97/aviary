@@ -36,16 +36,18 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Bird className="w-6 h-6" aria-hidden="true" />
-              <span className="font-metal text-2xl tracking-wide">The Aviary</span>
+              <span className="font-bebas-note text-2xl tracking-wide text-cream">
+                West Bengal Avian Soceity
+              </span>
             </div>
-            <p className="text-cream/70 text-sm leading-relaxed">
+            <p className="text-cream/70 text-sm leading-relaxed font-sans">
               Your handcrafted companion for discovering, caring for, and celebrating pet birds.
             </p>
           </div>
 
           <div>
             <h3 className="font-serif text-lg font-bold tracking-tight mb-4">Explore</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 font-sans">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-cream/70 hover:text-cream text-sm transition-colors">
@@ -63,7 +65,7 @@ export default function Footer() {
 
           <div>
             <h3 className="font-serif text-lg font-bold tracking-tight mb-4">Resources</h3>
-            <ul className="space-y-2 text-sm text-cream/70">
+            <ul className="space-y-2 text-sm text-cream/70 font-sans">
               <li><Link href="/care" className="hover:text-cream transition-colors">Care Guides</Link></li>
               <li><Link href="/habitats" className="hover:text-cream transition-colors">Habitat Setup</Link></li>
               <li><Link href="/birds" className="hover:text-cream transition-colors">Bird Directory</Link></li>
@@ -73,7 +75,7 @@ export default function Footer() {
 
           <div>
             <h3 className="font-serif text-lg font-bold tracking-tight mb-4">Newsletter</h3>
-            <p className="text-cream/70 text-sm mb-3">Weekly bird care tips delivered to your inbox.</p>
+            <p className="text-cream/70 text-sm mb-3 font-sans">Weekly bird care tips delivered to your inbox.</p>
             <form onSubmit={handleNewsletter} className="flex gap-2" aria-label="Newsletter signup">
               <label htmlFor="footer-email" className="sr-only">Email address</label>
               <input
@@ -83,7 +85,7 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="flex-1 px-3 py-2 rounded-lg bg-cream/10 border border-cream/20 text-cream placeholder:text-cream/40 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta"
+                className="flex-1 px-3 py-2 rounded-lg bg-cream/10 border border-cream/20 text-cream placeholder:text-cream/40 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta font-sans"
               />
               <button
                 type="submit"
@@ -99,9 +101,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans">
           <p className="text-cream/50 text-sm">
-            © {new Date().getFullYear()} The Aviary. Bird data sourced from Wikipedia.
+            © {new Date().getFullYear()} West Bengal Avian Soceity. Bird data sourced from Wikipedia.
           </p>
           <p className="text-cream/50 text-sm flex items-center gap-1">
             Made with <Heart className="w-3 h-3 text-terracotta" aria-hidden="true" /> for bird lovers

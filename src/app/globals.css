@@ -9,9 +9,10 @@
   --color-cream-dark: #EDE4D3;
   --color-forest-light: #1E5242;
   --color-terracotta-light: #D4846A;
-  --font-metal: var(--font-metal), "Metal", cursive, serif;
-  --font-serif: var(--font-eb-garamond), "EB Garamond", Garamond, Georgia, serif;
-  --font-sans: var(--font-montserrat), system-ui, sans-serif;
+  --font-bebas-note: var(--font-bebas-note), "Bebas Note", "Bebas Neue", sans-serif;
+  --font-cabinet: var(--font-cabinet), "Cabinet Grotesk", sans-serif;
+  --font-serif: var(--font-ovo), "Ovo", Georgia, serif;
+  --font-sans: var(--font-cabinet), "Cabinet Grotesk", system-ui, sans-serif;
 }
 
 @layer base {
@@ -39,7 +40,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-tight font-semibold;
+    @apply font-serif tracking-normal;
   }
 
   :focus-visible {
@@ -49,7 +50,7 @@
 
 @layer components {
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+    @apply px-[19px] py-[96px];
   }
 
   .paper-card {

@@ -18,7 +18,7 @@ export default function FeatureSplit({ featuredBird }: { featuredBird: Bird }) {
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2">
       {/* Featured Bird */}
-      <div className="bg-cream section-padding flex flex-col justify-center">
+      <div className="bg-cream px-[19px] py-[96px] flex flex-col justify-center">
         <p className="text-olive text-sm uppercase tracking-widest font-semibold mb-2">
           Featured Bird of the Week
         </p>
@@ -47,7 +47,7 @@ export default function FeatureSplit({ featuredBird }: { featuredBird: Bird }) {
       </div>
 
       {/* Care Basics */}
-      <div className="bg-forest section-padding text-cream">
+      <div className="bg-forest px-[19px] py-[96px] text-cream">
         <h2 className="font-serif text-3xl md:text-4xl mb-2">Bird Care Basics</h2>
         <p className="text-cream/70 mb-8 max-w-md">
           Essential knowledge every bird owner should have before bringing home a new companion.
@@ -70,7 +70,10 @@ export default function FeatureSplit({ featuredBird }: { featuredBird: Bird }) {
             </motion.div>
           ))}
         </div>
-        <Link href="/care" className="inline-block mt-8 text-terracotta-light hover:text-cream transition-colors font-semibold">
+        <Link
+          href="/care"
+          className="inline-block mt-8 text-terracotta-light hover:text-cream transition-colors font-semibold"
+        >
           Read Full Care Guide →
         </Link>
       </div>
