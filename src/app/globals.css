@@ -9,10 +9,10 @@
   --color-cream-dark: #EDE4D3;
   --color-forest-light: #1E5242;
   --color-terracotta-light: #D4846A;
-  --font-bebas-note: var(--font-bebas-note), "Bebas Note", "Bebas Neue", sans-serif;
-  --font-cabinet: var(--font-cabinet), "Cabinet Grotesk", sans-serif;
   --font-serif: var(--font-ovo), "Ovo", Georgia, serif;
-  --font-sans: var(--font-cabinet), "Cabinet Grotesk", system-ui, sans-serif;
+  --font-ovo: var(--font-ovo), "Ovo", Georgia, serif;
+  --font-sans: var(--font-mulish), "Mulish", system-ui, sans-serif;
+  --font-mulish: var(--font-mulish), "Mulish", system-ui, sans-serif;
 }
 
 @layer base {
