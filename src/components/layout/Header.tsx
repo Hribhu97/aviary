@@ -17,7 +17,7 @@ export default function Header() {
           <Link
             href="/"
             className="flex items-center gap-2 group flex-shrink-0"
-            aria-label="West Bengal Avian Soceity home"
+            aria-label="West Bengal Avian Society home"
           >
             <motion.div
               whileHover={{ rotate: -8 }}
@@ -26,7 +26,7 @@ export default function Header() {
               <Bird className="w-6 h-6 text-forest" aria-hidden="true" />
             </motion.div>
             <span className="font-serif text-xl sm:text-2xl text-forest font-bold tracking-tight">
-              West Bengal Avian Soceity
+              West Bengal Avian Society
             </span>
           </Link>
 

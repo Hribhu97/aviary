@@ -36,8 +36,8 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Bird className="w-6 h-6" aria-hidden="true" />
-              <span className="font-bebas-note text-2xl tracking-wide text-cream">
-                West Bengal Avian Soceity
+              <span className="font-serif text-2xl font-bold tracking-tight text-cream">
+                West Bengal Avian Society
               </span>
             </div>
             <p className="text-cream/70 text-sm leading-relaxed font-sans">
@@ -103,7 +103,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans">
           <p className="text-cream/50 text-sm">
-            © {new Date().getFullYear()} West Bengal Avian Soceity. Bird data sourced from Wikipedia.
+            © {new Date().getFullYear()} West Bengal Avian Society. Bird data sourced from Wikipedia.
           </p>
           <p className="text-cream/50 text-sm flex items-center gap-1">
             Made with <Heart className="w-3 h-3 text-terracotta" aria-hidden="true" /> for bird lovers
