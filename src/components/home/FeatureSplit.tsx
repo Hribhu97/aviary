@@ -2,8 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Home, Utensils, Heart, Stethoscope } from "lucide-react";
 import { Bird } from "@/lib/types";
+import { CARE_BASICS } from "@/lib/utils";
+
+const iconMap: Record<string, React.ReactNode> = {
+  home: <Home className="w-6 h-6" />,
+  utensils: <Utensils className="w-6 h-6" />,
+  heart: <Heart className="w-6 h-6" />,
+  stethoscope: <Stethoscope className="w-6 h-6" />,
+};
 
 export default function FeatureSplit({ featuredBird }: { featuredBird: Bird }) {
   return (
@@ -52,15 +61,39 @@ export default function FeatureSplit({ featuredBird }: { featuredBird: Bird }) {
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-cream font-medium tracking-tight mb-3">
             Bird Care Basics
           </h2>
-          <p className="text-cream/75 text-sm sm:text-base max-w-md leading-relaxed">
+          <p className="text-cream/75 text-sm sm:text-base max-w-md leading-relaxed mb-8">
             Essential knowledge every bird owner should have before bringing home a new companion.
           </p>
+
+          {/* 4 Essential Care Pillars / Points */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {CARE_BASICS.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+                className="bg-forest-light/60 border border-cream/15 rounded-2xl p-5 hover:border-cream/30 hover:bg-forest-light/80 transition-all duration-300 shadow-sm"
+              >
+                <div className="text-terracotta-light mb-3" aria-hidden="true">
+                  {iconMap[item.icon]}
+                </div>
+                <h3 className="font-serif text-lg font-semibold text-cream mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-cream/75 text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div className="pt-24 lg:pt-32">
+        <div className="pt-10">
           <Link
             href="/care"
-            className="inline-flex items-center gap-2 text-terracotta-light hover:text-cream transition-colors text-sm sm:text-base font-medium group"
+            className="inline-flex items-center gap-2 text-terracotta-light hover:text-cream transition-colors text-sm sm:text-base font-semibold group"
           >
             <span>Read Full Care Guide</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
