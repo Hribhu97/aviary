@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createMetadata, birdJsonLd } from "@/lib/seo";
 import { getBirdBySlug, getBirds, getAllBirdSlugs } from "@/lib/data-provider";
+import BirdHeroMedia from "@/components/birds/BirdHeroMedia";
 
 export async function generateStaticParams() {
   return getAllBirdSlugs().map((slug) => ({ slug }));
@@ -58,16 +59,13 @@ export default async function BirdProfilePage({ params }: { params: Promise<{ sl
 
           {/* Hero */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src={bird.heroImage}
-                alt={`${bird.name} (${bird.scientificName})`}
-                fill
-                className="object-cover"
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
+            <BirdHeroMedia
+              heroImage={bird.heroImage}
+              name={bird.name}
+              scientificName={bird.scientificName}
+              videoUrl={bird.videoUrl}
+              slug={bird.slug}
+            />
             <div>
               <span className="inline-block px-3 py-1 bg-forest/10 text-forest text-xs rounded-full font-semibold mb-3">
                 {bird.category}

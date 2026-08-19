@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-espresso/10">
       <div className="w-full max-w-[1728.11px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[44px] min-h-[44px]">
+        <div className="flex items-center justify-between h-[52px] min-h-[44px]">
           {/* Logo with Ovo font */}
           <Link
             href="/"
@@ -25,14 +25,14 @@ export default function Header() {
             >
               <Bird className="w-6 h-6 text-forest" aria-hidden="true" />
             </motion.div>
-            <span className="font-serif text-xl sm:text-2xl text-forest font-bold tracking-tight">
+            <span className="font-serif text-lg sm:text-xl md:text-2xl text-forest font-bold tracking-tight whitespace-nowrap">
               West Bengal Avian Society
             </span>
           </Link>
 
           {/* Navigation with Mulish Medium + Hover Underline Effect */}
           <nav
-            className="hidden md:flex items-center gap-7 lg:gap-8 h-full"
+            className="hidden md:flex items-center gap-6 lg:gap-8 h-full"
             aria-label="Main navigation"
           >
             {NAV_LINKS.map((link) => (

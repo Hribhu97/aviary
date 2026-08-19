@@ -27,6 +27,7 @@ export interface Bird {
   whereToFind: string;
   conservationStatus: string;
   heroImage: string;
+  videoUrl?: string;
   gallery: string[];
   featured: boolean;
   description: string;

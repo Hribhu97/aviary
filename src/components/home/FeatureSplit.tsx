@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Home, Utensils, Heart, Stethoscope } from "lucide-react";
 import { Bird } from "@/lib/types";
 import { CARE_BASICS } from "@/lib/utils";
+import BirdHeroMedia from "@/components/birds/BirdHeroMedia";
 
 const iconMap: Record<string, React.ReactNode> = {
   home: <Home className="w-6 h-6" />,
@@ -33,14 +33,13 @@ export default function FeatureSplit({ featuredBird }: { featuredBird: Bird }) {
             {featuredBird.description}
           </p>
 
-          <div className="relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden shadow-md mb-8">
-            <Image
-              src={featuredBird.heroImage}
-              alt={`${featuredBird.name} — featured bird`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
-              priority
+          <div className="w-full max-w-md mb-8">
+            <BirdHeroMedia
+              heroImage={featuredBird.heroImage}
+              name={featuredBird.name}
+              scientificName={featuredBird.scientificName}
+              videoUrl={featuredBird.videoUrl}
+              slug={featuredBird.slug}
             />
           </div>
 

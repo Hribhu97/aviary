@@ -9,74 +9,139 @@
   --color-cream-dark: #EDE4D3;
   --color-forest-light: #1E5242;
   --color-terracotta-light: #D4846A;
+
   --font-serif: var(--font-ovo), "Ovo", Georgia, serif;
   --font-ovo: var(--font-ovo), "Ovo", Georgia, serif;
-  --font-sans: var(--font-mulish), "Mulish", system-ui, sans-serif;
-  --font-mulish: var(--font-mulish), "Mulish", system-ui, sans-serif;
+  --font-sans: var(--font-mulish), "Mulish", system-ui, -apple-system, sans-serif;
+  --font-mulish: var(--font-mulish), "Mulish", system-ui, -apple-system, sans-serif;
 }
 
-@layer base {
+:root {
+  --font-ovo: "Ovo", Georgia, serif;
+  --font-mulish: "Mulish", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-
-  body {
-    @apply bg-cream text-espresso font-sans antialiased;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23392B24' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-normal;
-  }
-
-  :focus-visible {
-    @apply outline-2 outline-offset-2 outline-terracotta;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-@layer components {
+body {
+  background-color: #F6F0E4;
+  color: #392B24;
+  font-family: var(--font-mulish), "Mulish", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23392B24' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-ovo), "Ovo", Georgia, serif;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+:focus-visible {
+  outline: 2px solid #B86143;
+  outline-offset: 2px;
+}
+
+.section-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
   .section-padding {
-    @apply px-[19px] py-[96px];
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
+}
 
-  .paper-card {
-    @apply bg-cream rounded-2xl shadow-[0_4px_20px_rgba(57,43,36,0.08)] border border-espresso/10;
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
+}
 
-  .stamp-button {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-terracotta text-cream font-semibold rounded-full
-           shadow-[0_4px_12px_rgba(184,97,67,0.3)] hover:bg-terracotta-light transition-colors
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta;
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
+}
 
-  .ghost-button {
-    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-forest text-forest font-semibold rounded-full
-           hover:bg-forest hover:text-cream transition-colors;
-  }
+.paper-card {
+  background-color: #F6F0E4;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(57, 43, 36, 0.08);
+  border: 1px solid rgba(57, 43, 36, 0.1);
+}
 
-  .field-label {
-    @apply text-xs uppercase tracking-wider text-olive font-semibold;
-  }
+.stamp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #B86143;
+  color: #F6F0E4;
+  font-weight: 600;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(184, 97, 67, 0.3);
+  transition: background-color 0.2s;
+}
 
-  .field-value {
-    @apply text-espresso;
-  }
+.stamp-button:hover {
+  background-color: #D4846A;
+}
 
-  .skeleton {
-    @apply animate-pulse bg-espresso/10 rounded;
-  }
+.ghost-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #153F32;
+  color: #153F32;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.2s;
+}
+
+.ghost-button:hover {
+  background-color: #153F32;
+  color: #F6F0E4;
+}
+
+.field-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #7F8560;
+  font-weight: 600;
+}
+
+.field-value {
+  color: #392B24;
+}
+
+.skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background-color: rgba(57, 43, 36, 0.1);
+  border-radius: 0.25rem;
 }
